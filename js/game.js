@@ -16,3 +16,29 @@ startButton.addEventListener("click", () => {
     const game = document.querySelector(".game");
     game.classList.remove("game-hidden")
 })
+
+const points = document.getElementById('points');
+const lost = document.getElementById('lost');
+
+getHole = index => document.getElementById(`hole${index}`);
+
+for (let i = 1; i < 17; i++) {
+    let hole = getHole(i);
+    hole.addEventListener("click", function() {
+        if (hole.classList.contains("active-hole")) {
+            score.textContent++;
+            if (score.textContent === '10') {
+                alert('Победа');
+                score.textContent = '0';
+                lose.textContent = '0';
+            }
+        } else {
+            lost.textContent++;
+            if (lose.textContent === '5') {
+                alert('Поражение');
+                score.textContent = '0';
+                lose.textContent = '0';
+            }
+        } 
+    })
+}
