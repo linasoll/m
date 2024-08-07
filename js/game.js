@@ -7,3 +7,12 @@ export function changeHole() {
 }
 
 setInterval(changeHole, 1000)
+
+const startButton = document.querySelector(".start-button");
+
+startButton.addEventListener("click", () => {
+    const popup = document.querySelector(".start-sign");
+    popup.remove();
+    const game = document.querySelector(".game");
+    game.classList.remove("game-hidden")
+})
