@@ -36,7 +36,7 @@ body {
 }
 
 
-.start-sign {
+.start-sign, .win-sign, .lose-sign {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -51,6 +51,7 @@ body {
     border-left: 5px solid rgb(149, 126, 85);
     border-bottom: 5px solid rgb(149, 126, 85)
 }
+
 
 .rules {
     font-size: 20px;
