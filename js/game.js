@@ -81,4 +81,4 @@ if(best.textContent < points.textContent) {
     best.textContent = points.textContent;
 }
 
-best.textContent = bestWin.textContent;
+bestWin.textContent = best.textContent
