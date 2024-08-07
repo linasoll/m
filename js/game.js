@@ -34,7 +34,7 @@ for (let i = 1; i < 17; i++) {
             }
         } else {
             lost.textContent++;
-            if (lose.textContent === '5') {
+            if (lost.textContent === '5') {
                 alert('Поражение');
                 score.textContent = '0';
                 lose.textContent = '0';
