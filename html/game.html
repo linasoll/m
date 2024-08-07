@@ -18,11 +18,13 @@
             5 &nbsp;промахов&nbsp;- проигрыш</p>
         </div>
         <button class="start-button" type="button" href="https://angelina-salt.github.io/mole-game/html/game.html">Играть</button>
-      </div>
-    <div class="game game-hidden">
+    </div>
+    <div class="game hidden">
         <div class="score">
+            <div>Время: <span id="timer" class="number">60</span></div>
             <div>Очки: <span id="points" class="number">0</span></div>
             <div>Промахи: <span id="lost" class="number">0</span></div>
+            <div>Рекорд: <span id="best" class="number">0</span></div>
         </div>
         <div class="field">
             <div class="hole active-hole" id="hole1"></div>
@@ -43,6 +45,29 @@
             <div class="hole" id="hole16"></div>
         </div>
   </div>
+
+  <div class="win-sign hidden">
+    <div class="game-name">Спаси огород</div>
+    <div class="rules">
+        <p>Время вышло!<br>
+          Счет: <span class="number" id="points-win">0</span>
+          Рекорд: <span class="number" id="best-win">0</span>
+        </p>
+    </div>
+    <button class="start-button new-game" type="button">Новая игра</button>
+  </div>
+
+  <div class="lose-sign hidden">
+    <div class="game-name">Спаси огород</div>
+    <div class="rules">
+        <p>Вы проиграли!<br>
+          Счет: <span class="number" id="points-win">0</span>
+          Рекорд: <span class="number" id="best-win">0</span>
+        </p>
+    </div>
+    <button class="start-button new-game" type="button">Новая игра</button>
+  </div>
+
   <script src="../js/game.js" type="module"></script>
 </body>
 </html>

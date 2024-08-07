@@ -90,7 +90,7 @@ body {
     background-color: rgb(217, 191, 99);
 }
 
-.game-hidden {
+.hidden {
     display: none;
 }
 
