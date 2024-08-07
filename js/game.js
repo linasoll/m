@@ -10,8 +10,13 @@ setInterval(changeHole, 1000)
 
 const startButton = document.querySelector(".start-button");
 const game = document.querySelector(".game");
-const points = document.getElementById('points');
-const lost = document.getElementById('lost');
+const points = document.getElementById("points");
+const lost = document.getElementById("lost");
+const best = document.getElementById("best");
+const bestWin = document.getElementById("best-win");
+const bestLose = document.getElementById("best-win");
+const pointsWin = document.getElementById("best-win");
+const pointsLose = document.getElementById("best-win");
 const getHole = index => document.getElementById(`hole${index}`);
 const popup = document.querySelector(".start-sign");
 const popupWin = document.querySelector(".win-sign");
@@ -34,8 +39,6 @@ for (let i = 1; i < 17; i++) {
             lost.textContent++;
             if (lost.textContent === '5') {
                 loseGame();
-                score.textContent = '0';
-                lose.textContent = '0';
             }
         } 
     })
@@ -48,8 +51,6 @@ function countDown() {
     if (timer.textContent === '0') {
         winGame();
         clearInterval(intId);
-        points.textContent = '0';
-        lost.textContent = '0';
     }
 }
 
@@ -57,21 +58,29 @@ let intId = setInterval(countDown, 1000);
 
 
 function winGame() {
-    game.classList.add("hidden")
+    pointsWin.textContent = points.textContent;
+    game.classList.add("hidden");
     popupWin.classList.remove("hidden")
 }
 
 function loseGame() {
-    game.classList.add("hidden")
+    pointsLose.textContent = points.textContent;
+    game.classList.add("hidden");
     popupLose.classList.remove("hidden")
 }
 
-function newGame() {
-    newGameButtons.array.forEach(element => {
-        element.addEventListener("click", () => {
-            game.classList.remove("hidden");
-            popupWin.classList.add("hidden");
-            popupLose.classList.add("hidden")
-        })
-    });
+newGameButtons.forEach(element => {
+    element.addEventListener("click", () => {
+        points.textContent = '0';
+        lost.textContent = '0';
+        game.classList.remove("hidden");
+        popupWin.classList.add("hidden");
+        popupLose.classList.add("hidden")
+    })
+});
+
+if(best.textContent < points.textContent) {
+    best.textContent = points.textContent;
 }
+
+best.textContent = bestLose.textContent = bestWin.textContent;
