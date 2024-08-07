@@ -8,7 +8,6 @@ body {
 }
 
 .field {
-    cursor: url("../images/hammer.png");
     margin: auto;
     width: 460px;
     display: flex;
@@ -31,6 +30,7 @@ body {
 }
 
 .active-hole {
+    cursor: url("../images/hammer.png");
     background-image: url("../images/mole.png");
     background-size: contain;
 }
