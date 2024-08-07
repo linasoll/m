@@ -26,7 +26,7 @@ for (let i = 1; i < 17; i++) {
     let hole = getHole(i);
     hole.addEventListener("click", function() {
         if (hole.classList.contains("active-hole")) {
-            score.textContent++;
+            points.textContent++;
             if (score.textContent === '10') {
                 alert('Победа');
                 score.textContent = '0';
