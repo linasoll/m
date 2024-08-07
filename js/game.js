@@ -20,7 +20,7 @@ startButton.addEventListener("click", () => {
 const points = document.getElementById('points');
 const lost = document.getElementById('lost');
 
-getHole = index => document.getElementById(`hole${index}`);
+const getHole = index => document.getElementById(`hole${index}`);
 
 for (let i = 1; i < 17; i++) {
     let hole = getHole(i);
