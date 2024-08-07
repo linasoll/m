@@ -33,7 +33,7 @@ for (let i = 1; i < 17; i++) {
     hole.addEventListener("click", function() {
         if (hole.classList.contains("active-hole")) {
             points.textContent++;
-            if(best.textContent < points.textContent) {
+            if(Number(best.textContent) < Number(points.textContent)) {
                 best.textContent = points.textContent;
             }
         } else {
@@ -55,7 +55,7 @@ function countDown() {
     }
 }
 
-let intId = setInterval(countDown, 1000);
+
 
 
 function winGame() {
