@@ -35,6 +35,7 @@ for (let i = 1; i < 17; i++) {
             points.textContent++;
             if(Number(best.textContent) < Number(points.textContent)) {
                 best.textContent = points.textContent;
+                bestWin.textContent = best.textContent;
             }
         } else {
             lost.textContent++;
@@ -45,8 +46,6 @@ for (let i = 1; i < 17; i++) {
     })
 }
 
-
-
 function countDown() {
     timeValue.textContent--;
     if (timer.textContent === '0') {
@@ -56,7 +55,6 @@ function countDown() {
 }
 
 let intId = setInterval(countDown, 1000)
-
 
 function winGame() {
     pointsWin.textContent = points.textContent;
@@ -79,5 +77,3 @@ newGameButtons.forEach(element => {
         popupLose.classList.add("hidden")
     })
 });
-
-bestWin.textContent = best.textContent
