@@ -33,6 +33,9 @@ for (let i = 1; i < 17; i++) {
     hole.addEventListener("click", function() {
         if (hole.classList.contains("active-hole")) {
             points.textContent++;
+            if(best.textContent < points.textContent) {
+                best.textContent = points.textContent;
+            }
         } else {
             lost.textContent++;
             if (lost.textContent === '5') {
@@ -76,9 +79,5 @@ newGameButtons.forEach(element => {
         popupLose.classList.add("hidden")
     })
 });
-
-if(best.textContent < points.textContent) {
-    best.textContent = points.textContent;
-}
 
 bestWin.textContent = best.textContent
