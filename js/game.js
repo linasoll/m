@@ -17,7 +17,7 @@ const popup = document.querySelector(".start-sign");
 const popupWin = document.querySelector(".win-sign");
 const popupLose = document.querySelector(".lose-sign");
 const timeValue = document.getElementById("timer");
-const newGameButtons = querySelectorAll(".new-game");
+const newGameButtons = document.querySelectorAll(".new-game");
 
 
 startButton.addEventListener("click", () => {
