@@ -55,7 +55,7 @@ function countDown() {
     }
 }
 
-
+let intId = setInterval(countDown, 1000)
 
 
 function winGame() {
