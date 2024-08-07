@@ -22,7 +22,7 @@ const newGameButtons = document.querySelectorAll(".new-game");
 
 startButton.addEventListener("click", () => {
     popup.remove();
-    game.classList.remove("game-hidden")
+    game.classList.remove("hidden")
 })
 
 for (let i = 1; i < 17; i++) {
