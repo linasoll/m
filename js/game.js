@@ -14,9 +14,7 @@ const points = document.getElementById("points");
 const lost = document.getElementById("lost");
 const best = document.getElementById("best");
 const bestWin = document.getElementById("best-win");
-const bestLose = document.getElementById("best-win");
-const pointsWin = document.getElementById("best-win");
-const pointsLose = document.getElementById("best-win");
+const pointsWin = document.getElementById("points-win");
 const getHole = index => document.getElementById(`hole${index}`);
 const popup = document.querySelector(".start-sign");
 const popupWin = document.querySelector(".win-sign");
@@ -71,6 +69,7 @@ function loseGame() {
 
 newGameButtons.forEach(element => {
     element.addEventListener("click", () => {
+        timer.textContent = '60';
         points.textContent = '0';
         lost.textContent = '0';
         game.classList.remove("hidden");
@@ -83,4 +82,4 @@ if(best.textContent < points.textContent) {
     best.textContent = points.textContent;
 }
 
-best.textContent = bestLose.textContent = bestWin.textContent;
+best.textContent = bestWin.textContent;
