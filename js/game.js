@@ -62,7 +62,6 @@ function winGame() {
 }
 
 function loseGame() {
-    pointsLose.textContent = points.textContent;
     game.classList.add("hidden");
     popupLose.classList.remove("hidden")
 }
