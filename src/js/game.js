@@ -36,21 +36,24 @@ function changeHole() {
     const activeHole = document.querySelector(".active-hole");
     activeHole.classList.remove("active-hole")
 
-    if (previousIndex !== -1 && activeHole) {
-        lost.textContent++;
-        if (lost.textContent === '5') {
-            loseGame();
+    if (activeHole) {
+        activeHole.classList.remove("active-hole");
+        if (previousIndex !== -1) {
+            lost.textContent++;
+            if (Number(lost.textContent) >= 5) {
+                loseGame();
+                return;  
+            }
         }
     }
 
-    let index;
+    let index = Math.floor(1 + Math.random() * 16);
     do {
         index = Math.floor(1 + Math.random() * 16);
     } while (index === previousIndex)
 
     previousIndex = index;
 
-    index = Math.floor(1 + Math.random() * 16);
     const newActive = document.getElementById(`hole${index}`);
     newActive.classList.add("active-hole")
 }
