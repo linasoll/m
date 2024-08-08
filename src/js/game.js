@@ -11,7 +11,7 @@ const popupWin = document.querySelector(".win-sign");
 const popupLose = document.querySelector(".lose-sign");
 const timeValue = document.getElementById("timer");
 const newGameButtons = document.querySelectorAll(".new-game");
-let previousIndex = null;
+let previousIndex = -1;
 
 for (let i = 1; i < 17; i++) {
     let hole = getHole(i);
@@ -34,16 +34,14 @@ for (let i = 1; i < 17; i++) {
 
 function changeHole() {
     const activeHole = document.querySelector(".active-hole");
+    activeHole.classList.remove("active-hole")
 
-    setTimeout(() => {
-        if (activeHole.classList.contains("active-hole")) {
-            activeHole.classList.remove("active-hole");
-            lost.textContent++;
-            if (lost.textContent === '5') {
-                loseGame();
-            }
+    if (previousIndex !== -1 && activeHole) {
+        lost.textContent++;
+        if (lost.textContent === '5') {
+            loseGame();
         }
-    }, 1000);
+    }
 
     let index;
     do {
