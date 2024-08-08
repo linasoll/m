@@ -26,7 +26,6 @@ const newGameButtons = document.querySelectorAll(".new-game");
 startButton.addEventListener("click", () => {
     popup.remove();
     game.classList.remove("hidden");
-    startTimer();
 })
 
 for (let i = 1; i < 17; i++) {
@@ -47,16 +46,15 @@ for (let i = 1; i < 17; i++) {
     })
 }
 
-function startTimer() {
-    let intId = setInterval(countDown, 1000);
+setInterval(countDown, 1000);
 
-    function countDown() {
-        timeValue.textContent--;
-        if (timer.textContent === '0') {
-            winGame();
-        }
+function countDown() {
+    timeValue.textContent--;
+    if (timer.textContent === '0') {
+        winGame();
     }
 }
+
 
 
 function winGame() {
@@ -72,7 +70,6 @@ function loseGame() {
 
 newGameButtons.forEach(element => {
     element.addEventListener("click", () => {
-        clearInterval(intId);
         timer.textContent = '60';
         points.textContent = '0';
         lost.textContent = '0';
