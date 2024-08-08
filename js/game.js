@@ -1,13 +1,3 @@
-function changeHole() {
-    const activeHole = document.querySelector(".active-hole");
-    activeHole.classList.remove("active-hole");
-    const index = Math.floor(1 + Math.random() * 16);
-    const newActive = document.getElementById(`hole${index}`);
-    newActive.classList.add("active-hole")
-}
-
-setInterval(changeHole, 1000)
-
 const startButton = document.querySelector(".start-button");
 const game = document.querySelector(".game");
 const points = document.getElementById("points");
@@ -21,6 +11,25 @@ const popupWin = document.querySelector(".win-sign");
 const popupLose = document.querySelector(".lose-sign");
 const timeValue = document.getElementById("timer");
 const newGameButtons = document.querySelectorAll(".new-game");
+let previousIndex = null;
+
+function changeHole() {
+    const activeHole = document.querySelector(".active-hole");
+    activeHole.classList.remove("active-hole");
+
+    let index;
+    do {
+        index = Math.floor(1 + Math.random() * 16);
+    } while (index === previousIndex)
+
+    previousIndex = index;
+
+    index = Math.floor(1 + Math.random() * 16);
+    const newActive = document.getElementById(`hole${index}`);
+    newActive.classList.add("active-hole")
+}
+
+setInterval(changeHole, 1000)
 
 
 startButton.addEventListener("click", () => {

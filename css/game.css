@@ -8,6 +8,7 @@ body {
     font-style: normal;
     color:rgb(0, 57, 4);
     padding-top: 60px;
+    text-align: center;
 }
 
 .field {
@@ -30,7 +31,7 @@ body {
     
     margin: auto;
     background-color: rgb(255, 227, 127);
-    padding: 20px;
+    padding: 20px 50px;
     border-top: 5px solid rgb(255, 245, 210);
     border-right: 5px solid rgb(255, 245, 210);
     border-left: 5px solid rgb(149, 126, 85);
