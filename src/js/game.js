@@ -13,19 +13,11 @@ const timeValue = document.getElementById("timer");
 const newGameButtons = document.querySelectorAll(".new-game");
 let previousIndex = -1;
 
-function startGame() {
-    let intId = setInterval(changeHole, 1000);
-    let intIdTwo = setInterval(countDown, 1000);
-    timer.textContent = '60';
-    if (timer.textContent === '0') {
-        clearInterval(intId);
-        clearInterval(intIdTwo);
-    }
+setInterval(changeHole, 1000);
+setInterval(countDown, 1000);
 
-    if (lost.textContent === '5') {
-        clearInterval(intId);
-        clearInterval(intIdTwo);
-    }
+function startGame() {
+    timer.textContent = '60';
 }
 
 for (let i = 1; i < 17; i++) {
@@ -54,9 +46,8 @@ function changeHole() {
         activeHole.classList.remove("active-hole");
         if (previousIndex !== -1) {
             lost.textContent++;
-            if (Number(lost.textContent) >= 5) {
-                loseGame();
-                return;  
+            if (lost.textContent === '5') {
+                loseGame(); 
             }
         }
     }
