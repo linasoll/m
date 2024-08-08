@@ -83,7 +83,7 @@ function winGame() {
 }
 
 function loseGame() {
-    if (!popup.classList.contains("hidden") && !popupWin.classList.contains("hidden")) {
+    if (!popup.classList.contains("hidden") || !popupWin.classList.contains("hidden")) {
         return
     }
     game.classList.add("hidden");
