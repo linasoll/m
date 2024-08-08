@@ -1,5 +1,3 @@
-const { clearInterval } = require("timers");
-
 const startButton = document.querySelector(".start-button");
 const game = document.querySelector(".game");
 const points = document.getElementById("points");
