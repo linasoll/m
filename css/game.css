@@ -26,6 +26,7 @@ body {
 }
 
 .score {
+    margin: auto;
     background-color: rgb(255, 227, 127);
     padding: 20px;
     border-top: 5px solid rgb(255, 245, 210);
