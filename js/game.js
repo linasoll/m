@@ -25,7 +25,8 @@ const newGameButtons = document.querySelectorAll(".new-game");
 
 startButton.addEventListener("click", () => {
     popup.remove();
-    game.classList.remove("hidden")
+    game.classList.remove("hidden");
+    startGame();
 })
 
 function startGame() {
