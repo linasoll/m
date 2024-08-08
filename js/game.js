@@ -28,33 +28,35 @@ startButton.addEventListener("click", () => {
     game.classList.remove("hidden")
 })
 
-for (let i = 1; i < 17; i++) {
-    let hole = getHole(i);
-    hole.addEventListener("click", function() {
-        if (hole.classList.contains("active-hole")) {
-            points.textContent++;
-            if(Number(best.textContent) < Number(points.textContent)) {
-                best.textContent = points.textContent;
-                bestWin.textContent = best.textContent;
-            }
-        } else {
-            lost.textContent++;
-            if (lost.textContent === '5') {
-                loseGame();
-            }
-        } 
-    })
-}
+function startGame() {
+    for (let i = 1; i < 17; i++) {
+        let hole = getHole(i);
+        hole.addEventListener("click", function() {
+            if (hole.classList.contains("active-hole")) {
+                points.textContent++;
+                if(Number(best.textContent) < Number(points.textContent)) {
+                    best.textContent = points.textContent;
+                    bestWin.textContent = best.textContent;
+                }
+            } else {
+                lost.textContent++;
+                if (lost.textContent === '5') {
+                    loseGame();
+                }
+            } 
+        })
+    }
 
-function countDown() {
-    timeValue.textContent--;
-    if (timer.textContent === '0') {
-        winGame();
-        clearInterval(intId);
+    let intId = setInterval(countDown, 1000)
+
+    function countDown() {
+        timeValue.textContent--;
+        if (timer.textContent === '0') {
+            winGame();
+            clearInterval(intId);
+        }
     }
 }
-
-let intId = setInterval(countDown, 1000)
 
 function winGame() {
     pointsWin.textContent = points.textContent;
@@ -74,6 +76,7 @@ newGameButtons.forEach(element => {
         lost.textContent = '0';
         game.classList.remove("hidden");
         popupWin.classList.add("hidden");
-        popupLose.classList.add("hidden")
+        popupLose.classList.add("hidden");
+        startGame()
     })
 });
