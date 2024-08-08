@@ -34,7 +34,6 @@ for (let i = 1; i < 17; i++) {
 
 function changeHole() {
     const activeHole = document.querySelector(".active-hole");
-    activeHole.classList.remove("active-hole")
 
     if (activeHole) {
         activeHole.classList.remove("active-hole");
