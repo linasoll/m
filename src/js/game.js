@@ -66,7 +66,7 @@ function changeHole() {
 }
 
 startButton.addEventListener("click", () => {
-    popup.remove();
+    popup.classList.add("hidden");
     game.classList.remove("hidden");
     startGame()
 })
