@@ -13,6 +13,27 @@ const timeValue = document.getElementById("timer");
 const newGameButtons = document.querySelectorAll(".new-game");
 let previousIndex = null;
 
+// function activateGoblin() {
+//     let randomHoleIndex = Math.floor(Math.random() * 16) + 1;
+//     let activeHole = getHole(randomHoleIndex);
+//     activeHole.classList.add('active-hole');
+
+    
+// }
+
+// for (let i = 1; i <= 16; i++) {
+//     let hole = getHole(i);
+//     hole.addEventListener("click", function() {
+//         if (hole.classList.contains("active-hole")) {
+//             points.textContent++;
+//             hole.classList.remove("active-hole");
+//             if(Number(best.textContent) < Number(points.textContent)) {
+//                 best.textContent = points.textContent;
+//             }
+//         }
+//     });
+// }
+
 function changeHole() {
     const activeHole = document.querySelector(".active-hole");
     activeHole.classList.remove("active-hole");
@@ -27,6 +48,15 @@ function changeHole() {
     index = Math.floor(1 + Math.random() * 16);
     const newActive = document.getElementById(`hole${index}`);
     newActive.classList.add("active-hole")
+    setTimeout(() => {
+        if (activeHole.classList.contains('active-hole')) {
+            activeHole.classList.remove('active-hole');
+            lost.textContent++;
+            if (lost.textContent === '5') {
+                loseGame();
+            }
+        }
+    }, 1000);
 }
 
 setInterval(changeHole, 1000)
@@ -46,15 +76,25 @@ for (let i = 1; i < 17; i++) {
             if(Number(best.textContent) < Number(points.textContent)) {
                 best.textContent = points.textContent;
                 bestWin.textContent = best.textContent;
-            }
-        } else {
-            lost.textContent++;
-            if (lost.textContent === '5') {
-                loseGame();
-            }
-        } 
+            }}
+        // } else {
+        //     lost.textContent++;
+        //     if (lost.textContent === '5') {
+        //         loseGame();
+        //     }
+        // } 
+        // setTimeout(() => {
+        //     if (hole.classList.contains("active-hole")) {
+        //         activeHole.classList.remove("active-hole");
+        //         lost.textContent++;
+        //         if (lost.textContent === '5') {
+        //             loseGame();
+        //         }
+        //     }
+        // }, 1000);
     })
 }
+
 
 setInterval(countDown, 1000);
 
