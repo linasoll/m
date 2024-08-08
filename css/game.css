@@ -26,10 +26,8 @@ body {
 }
 
 .score {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    display: inline-block;
+    
     margin: auto;
     background-color: rgb(255, 227, 127);
     padding: 20px;
