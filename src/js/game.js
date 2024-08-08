@@ -13,6 +13,50 @@ const timeValue = document.getElementById("timer");
 const newGameButtons = document.querySelectorAll(".new-game");
 let previousIndex = null;
 
+function changeHoleNew() {
+    const activeHole = document.querySelector(".active-hole");
+
+    for (let i = 1; i < 17; i++) {
+        let hole = getHole(i);
+        hole.addEventListener("click", () => {
+            if (hole.classList.contains("active-hole")) {
+                points.textContent++;
+                if(Number(best.textContent) < Number(points.textContent)) {
+                    best.textContent = points.textContent;
+                    bestWin.textContent = best.textContent;
+                }
+                activeHole.classList.remove("active-hole")
+            } else {
+                lost.textContent++;
+                if (lost.textContent === '5') {
+                    loseGame();
+                }
+            }
+        })
+    }
+
+    setTimeout(() => {
+        if (activeHole.classList.contains("active-hole")) {
+            activeHole.classList.remove("active-hole");
+            lost.textContent++;
+            if (lost.textContent === '5') {
+                loseGame();
+            }
+        }
+    }, 1000);
+
+    let index;
+    do {
+        index = Math.floor(1 + Math.random() * 16);
+    } while (index === previousIndex)
+
+    previousIndex = index;
+
+    index = Math.floor(1 + Math.random() * 16);
+    const newActive = document.getElementById(`hole${index}`);
+    newActive.classList.add("active-hole")
+}
+
 // function activateGoblin() {
 //     let randomHoleIndex = Math.floor(Math.random() * 16) + 1;
 //     let activeHole = getHole(randomHoleIndex);
@@ -34,32 +78,32 @@ let previousIndex = null;
 //     });
 // }
 
-function changeHole() {
-    const activeHole = document.querySelector(".active-hole");
-    activeHole.classList.remove("active-hole");
+// function changeHole() {
+//     const activeHole = document.querySelector(".active-hole");
+//     activeHole.classList.remove("active-hole");
 
-    let index;
-    do {
-        index = Math.floor(1 + Math.random() * 16);
-    } while (index === previousIndex)
+//     let index;
+//     do {
+//         index = Math.floor(1 + Math.random() * 16);
+//     } while (index === previousIndex)
 
-    previousIndex = index;
+//     previousIndex = index;
 
-    index = Math.floor(1 + Math.random() * 16);
-    const newActive = document.getElementById(`hole${index}`);
-    newActive.classList.add("active-hole")
-    setTimeout(() => {
-        if (activeHole.classList.contains('active-hole')) {
-            activeHole.classList.remove('active-hole');
-            lost.textContent++;
-            if (lost.textContent === '5') {
-                loseGame();
-            }
-        }
-    }, 1000);
-}
+//     index = Math.floor(1 + Math.random() * 16);
+//     const newActive = document.getElementById(`hole${index}`);
+//     newActive.classList.add("active-hole")
+//     setTimeout(() => {
+//         if (activeHole.classList.contains('active-hole')) {
+//             activeHole.classList.remove('active-hole');
+//             lost.textContent++;
+//             if (lost.textContent === '5') {
+//                 loseGame();
+//             }
+//         }
+//     }, 1000);
+// }
 
-setInterval(changeHole, 1000)
+setInterval(changeHoleNew, 1000)
 
 
 startButton.addEventListener("click", () => {
@@ -68,32 +112,32 @@ startButton.addEventListener("click", () => {
     game.classList.remove("hidden");
 })
 
-for (let i = 1; i < 17; i++) {
-    let hole = getHole(i);
-    hole.addEventListener("click", function() {
-        if (hole.classList.contains("active-hole")) {
-            points.textContent++;
-            if(Number(best.textContent) < Number(points.textContent)) {
-                best.textContent = points.textContent;
-                bestWin.textContent = best.textContent;
-            }}
-        // } else {
-        //     lost.textContent++;
-        //     if (lost.textContent === '5') {
-        //         loseGame();
-        //     }
-        // } 
-        // setTimeout(() => {
-        //     if (hole.classList.contains("active-hole")) {
-        //         activeHole.classList.remove("active-hole");
-        //         lost.textContent++;
-        //         if (lost.textContent === '5') {
-        //             loseGame();
-        //         }
-        //     }
-        // }, 1000);
-    })
-}
+// for (let i = 1; i < 17; i++) {
+//     let hole = getHole(i);
+//     hole.addEventListener("click", function() {
+//         if (hole.classList.contains("active-hole")) {
+//             points.textContent++;
+//             if(Number(best.textContent) < Number(points.textContent)) {
+//                 best.textContent = points.textContent;
+//                 bestWin.textContent = best.textContent;
+//             }}
+//         // } else {
+//         //     lost.textContent++;
+//         //     if (lost.textContent === '5') {
+//         //         loseGame();
+//         //     }
+//         // } 
+//         // setTimeout(() => {
+//         //     if (hole.classList.contains("active-hole")) {
+//         //         activeHole.classList.remove("active-hole");
+//         //         lost.textContent++;
+//         //         if (lost.textContent === '5') {
+//         //             loseGame();
+//         //         }
+//         //     }
+//         // }, 1000);
+//     })
+// }
 
 
 setInterval(countDown, 1000);
