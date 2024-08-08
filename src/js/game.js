@@ -1,3 +1,5 @@
+const { clearInterval } = require("timers");
+
 const startButton = document.querySelector(".start-button");
 const game = document.querySelector(".game");
 const points = document.getElementById("points");
@@ -12,6 +14,16 @@ const popupLose = document.querySelector(".lose-sign");
 const timeValue = document.getElementById("timer");
 const newGameButtons = document.querySelectorAll(".new-game");
 let previousIndex = -1;
+
+function startGame() {
+    let intId = setInterval(changeHole, 1000);
+    let intIdTwo = setInterval(countDown, 1000);
+    timer.textContent = '60';
+    if (timer.textContent === '0') {
+        clearInterval(intId);
+        clearInterval(intIdTwo);
+    }
+}
 
 for (let i = 1; i < 17; i++) {
     let hole = getHole(i);
@@ -57,15 +69,11 @@ function changeHole() {
     newActive.classList.add("active-hole")
 }
 
-setInterval(changeHole, 1000)
-
 startButton.addEventListener("click", () => {
-    timer.textContent = '60';
     popup.remove();
     game.classList.remove("hidden");
+    startGame()
 })
-
-setInterval(countDown, 1000);
 
 function countDown() {
     timeValue.textContent--;
@@ -87,11 +95,11 @@ function loseGame() {
 
 newGameButtons.forEach(element => {
     element.addEventListener("click", () => {
-        timer.textContent = '60';
         points.textContent = '0';
         lost.textContent = '0';
         game.classList.remove("hidden");
         popupWin.classList.add("hidden");
         popupLose.classList.add("hidden");
+        startGame();
     })
 });
