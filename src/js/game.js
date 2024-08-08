@@ -18,6 +18,8 @@ setInterval(countDown, 1000);
 
 function startGame() {
     timer.textContent = '60';
+    points.textContent = '0';
+    lost.textContent = '0';
 }
 
 for (let i = 1; i < 17; i++) {
@@ -92,8 +94,6 @@ function loseGame() {
 
 newGameButtons.forEach(element => {
     element.addEventListener("click", () => {
-        points.textContent = '0';
-        lost.textContent = '0';
         game.classList.remove("hidden");
         popupWin.classList.add("hidden");
         popupLose.classList.add("hidden");
