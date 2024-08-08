@@ -21,6 +21,11 @@ function startGame() {
         clearInterval(intId);
         clearInterval(intIdTwo);
     }
+
+    if (lost.textContent === '5') {
+        clearInterval(intId);
+        clearInterval(intIdTwo);
+    }
 }
 
 for (let i = 1; i < 17; i++) {
