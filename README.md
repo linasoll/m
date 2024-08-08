@@ -1,3 +1,3 @@
 # Начать игру
 
-https://angelina-salt.github.io/mole-game/html/game.html
+https://angelina-salt.github.io/mole-game
