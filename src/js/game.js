@@ -33,6 +33,7 @@ setInterval(changeHole, 1000)
 
 
 startButton.addEventListener("click", () => {
+    timer.textContent = '60';
     popup.remove();
     game.classList.remove("hidden");
 })
@@ -63,8 +64,6 @@ function countDown() {
         winGame();
     }
 }
-
-
 
 function winGame() {
     pointsWin.textContent = points.textContent;
