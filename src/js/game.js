@@ -17,7 +17,7 @@ setInterval(changeHole, 1000);
 setInterval(countDown, 1000);
 
 function startGame() {
-    timer.textContent = '60';
+    timeValue.textContent = '60';
     points.textContent = '0';
     lost.textContent = '0';
 }
@@ -73,7 +73,7 @@ startButton.addEventListener("click", () => {
 
 function countDown() {
     timeValue.textContent--;
-    if (timer.textContent === '0') {
+    if (timeValue.textContent === '0') {
         winGame();
     }
 }
