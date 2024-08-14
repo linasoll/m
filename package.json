@@ -4,7 +4,8 @@
   "description": "https://angelina-salt.github.io/mole-game/html/game.html",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
+    "lint": "eslint .",
     "build": "webpack --mode production"
   },
   "author": "Angelina S <soldatenko_angelina@mail.ru>",
