@@ -2,6 +2,8 @@ body {
     cursor: url("../images/hammer.png");
     background-image: url("../images/background.jpg");
     background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
     background-color: rgb(29, 188, 29);
     font-family: "DotGothic16", sans-serif;
     font-weight: 400;
@@ -110,4 +112,43 @@ body {
 
 .number {
     letter-spacing: 0;
+}
+
+@media (max-width: 600px) {
+    .field {
+        width: 95%;
+        gap: 3%;
+    }
+
+    .hole {
+        width: calc((100% - 9%)/4);
+        height: fit-content;
+    }
+
+    .score {
+        font-size: 15px;
+        letter-spacing: -3px;
+        padding: 10px 40px;
+        margin-bottom: 20px;
+    }
+
+    .start-sign, .win-sign, .lose-sign {
+        gap: 20px;
+        width: 95%;
+        padding: 20px;
+    }
+
+    .rules {
+        font-size: 15px;
+        letter-spacing: -3px;
+    }
+
+    .game-name {
+        font-size: 20px;
+    }
+
+    .start-button {
+        font-size: 15px;
+        padding: 5px 20px;
+    }
 }
