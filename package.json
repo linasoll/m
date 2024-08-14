@@ -15,6 +15,7 @@
     "@babel/core": "^7.25.2",
     "@babel/preset-env": "^7.25.3",
     "core-js": "3",
+    "jest": "^29.7.0",
     "webpack": "^5.93.0",
     "yarn": "^1.22.22"
   },
