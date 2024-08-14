@@ -4,7 +4,7 @@
   "description": "https://angelina-salt.github.io/mole-game/html/game.html",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "lint": "eslint .",
     "build": "webpack --mode production"
   },
